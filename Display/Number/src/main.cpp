@@ -163,15 +163,19 @@ void loop()
 
 
 void disp_num(int num)  
-{
-  
+{  
    switch(num)
    {
       case 0: char0(); break;
       case 1: char1(); break;
       case 2: char2(); break;
       case 3: char3(); break;
-  
+      case 4: char0(); break;
+      case 5: char1(); break;
+      case 6: char2(); break;
+      case 7: char3(); break;
+      case 8: char1(); break;
+      case 9: char2(); break;  
    } //end switch
    
 } // end disp_num
@@ -190,8 +194,7 @@ void char0()
   lcd.setCursor(5, 1);   //linha 2
   lcd.write((byte)3);    //segmento E
   lcd.write((byte)4);    //segmento D
-  lcd.write((byte)5);    //segmento C
-  
+  lcd.write((byte)5);    //segmento C  
 } //end char0
 
 
