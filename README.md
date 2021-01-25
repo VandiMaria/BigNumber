@@ -1,2 +1,2 @@
 # BigNumber
- Programa para gerar numeros grandes no display LCD
+ Programa para gerar numeros grandes num display LCD
