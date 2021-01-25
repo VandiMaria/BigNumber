@@ -137,7 +137,7 @@ void setup()
   Wire.begin(22,23);
   Serial.begin(115200);
    
-  lcd.createChar(0,segF);
+  lcd.createChar(0,segF);//Comando que transforma Matriz num indice
   lcd.createChar(1,segA);
   lcd.createChar(2,segB);
   lcd.createChar(3,segE);
@@ -153,12 +153,12 @@ void setup()
 void loop()
 {
   
-  DisplayNum(Num);
+  DisplayNum(Num);//Chama maquina de estado
   delay(741);
 
   Num += 1;
   if(Num > 9) Num = 0;
-  lcd.clear();
+  lcd.clear();//Apaga Led
  
 
 } //end loop
