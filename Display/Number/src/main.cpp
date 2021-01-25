@@ -21,18 +21,23 @@
 // --- Constantes ---
 LiquidCrystal_I2C lcd(0x27,20,4);
 
-
 // ========================================================================================================
 // --- Protótipo das Funções ---
-void disp_num(int num);
-void char0();
-void char1();
-void char2();
-void char3();
+void DisplayNum(int Num);
+void Char0();
+void Char1();
+void Char2();
+void Char3();
+void Char4();
+void Char5();
+void Char6();
+void Char7();
+void Char8();
+void Char9();
 
 // ========================================================================================================
 // --- Variáveis Globais ---
-int cnt_num = 0;
+int Num = 0;
 
 // Segmentos personalizados
 byte segF[8] = 
@@ -127,7 +132,11 @@ byte segG[8] =
 // --- Configurações Iniciais ---
 void setup()
 {
-  
+  lcd.init();                      // initialize the lcd 
+  lcd.backlight();
+  Wire.begin(22,23);
+  Serial.begin(115200);
+   
   lcd.createChar(0,segF);
   lcd.createChar(1,segA);
   lcd.createChar(2,segB);
@@ -135,10 +144,7 @@ void setup()
   lcd.createChar(4,segD);
   lcd.createChar(5,segC);
   lcd.createChar(6,segG);
- 
-  lcd.init ();  
-
- 
+  
 } //end setup
 
 
@@ -147,11 +153,11 @@ void setup()
 void loop()
 {
   
-  disp_num(cnt_num);
+  DisplayNum(Num);
   delay(741);
 
-  cnt_num += 1;
-  if(cnt_num > 3) cnt_num = 0;
+  Num += 1;
+  if(Num > 9) Num = 0;
   lcd.clear();
  
 
@@ -162,7 +168,7 @@ void loop()
 // --- Desenvolvimento das Funções ---
 
 
-void disp_num(int num)  
+void DisplayNum(int Num)  
 {  
    switch(num)
    {
@@ -185,7 +191,7 @@ void disp_num(int num)
 
 // ========================================================================================================
 // --- Gera os "segmentos" para o caractere 0 ---
-void char0()
+void Char0()
 { 
   lcd.setCursor(5, 0);   //linha 1
   lcd.write((byte)0);    //segmento F
@@ -200,7 +206,7 @@ void char0()
 
 // ========================================================================================================
 // --- Gera os "segmentos" para o caractere 1 ---
-void char1()
+void Char1()
 { 
   lcd.setCursor(5+2, 0);   //linha 1
   lcd.write((byte)2);    //segmento B
@@ -212,7 +218,7 @@ void char1()
 
 // ========================================================================================================
 // --- Gera os "segmentos" para o caractere 2 ---
-void char2()
+void Char2()
 { 
   lcd.setCursor(5+1, 0);   //linha 1
   lcd.write((byte)6);    //segmento G
@@ -226,7 +232,7 @@ void char2()
 
 // ========================================================================================================
 // --- Gera os "segmentos" para o caractere 3 ---
-void char3()
+void Char3()
 { 
   lcd.setCursor(5+1, 0);   //linha 1
   lcd.write((byte)6);    //segmento G
@@ -236,3 +242,82 @@ void char3()
   lcd.write((byte)5);    //segmento C
   
 } //end char3
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 4 ---
+void Char4()
+{ 
+  lcd.setCursor(5+2, 0);   //linha 1
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5+2, 1);   //linha 2
+  lcd.write((byte)5);    //segmento C
+  
+} //end char4
+
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 5---
+void Char5()
+{ 
+  lcd.setCursor(5+1, 0);   //linha 1
+  lcd.write((byte)6);    //segmento G
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5, 1);   //linha 2
+  lcd.write((byte)3);    //segmento E
+  lcd.write((byte)4);    //segmento D
+  
+} //end char5
+
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 6 ---
+void Char6()
+{ 
+  lcd.setCursor(5+1, 0);   //linha 1
+  lcd.write((byte)6);    //segmento G
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5+1, 1);   //linha 2
+  lcd.write((byte)4);    //segmento D
+  lcd.write((byte)5);    //segmento C
+  
+} //end char6
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 7 ---
+void Char7()
+{ 
+  lcd.setCursor(5+2, 0);   //linha 1
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5+2, 1);   //linha 2
+  lcd.write((byte)5);    //segmento C
+  
+} //end char7
+
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 8 ---
+void Char8()
+{ 
+  lcd.setCursor(5+1, 0);   //linha 1
+  lcd.write((byte)6);    //segmento G
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5, 1);   //linha 2
+  lcd.write((byte)3);    //segmento E
+  lcd.write((byte)4);    //segmento D
+  
+} //end char8
+
+
+// ========================================================================================================
+// --- Gera os "segmentos" para o caractere 9 ---
+void Char9()
+{ 
+  lcd.setCursor(5+1, 0);   //linha 1
+  lcd.write((byte)6);    //segmento G
+  lcd.write((byte)2);    //segmento B
+  lcd.setCursor(5+1, 1);   //linha 2
+  lcd.write((byte)4);    //segmento D
+  lcd.write((byte)5);    //segmento C
+  
+} //end char9
+
